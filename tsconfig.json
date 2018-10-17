@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "./public",
+        "rootDir": "./",
+        "lib": [ "esnext", "dom" ],
+        "module": "commonjs",
+        "target": "es6",
+        "sourceMap": true,
+        "strict": true,
+        "allowUnreachableCode": false,
+        "noImplicitReturns": true,
+        "allowUnusedLabels": false,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+    }
+}

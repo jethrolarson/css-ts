@@ -1,3 +1,8 @@
+import { Unit } from "./units";
+import { pipe, join, map } from "./util";
+
+export type CSSNumeric = number | Unit;
+
 export interface CSSProp {
   [k: string]: string | number;
 }
@@ -16,3 +21,13 @@ export const prop = <V extends string | number>(k: string) => (
 ): CSSProp => ({
   [k]: v
 });
+
+export const serializeUnit = (x: Unit) => x[0].toString() + x[1];
+
+export const serializeNumeric = (x: CSSNumeric) =>
+  Array.isArray(x) ? x[0].toString() + x[1] : x;
+
+export const serializeNumericTuple = pipe(
+  map(serializeNumeric),
+  join(" ")
+);

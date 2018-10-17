@@ -1,0 +1,37 @@
+{
+  "name": "css-ts",
+  "version": "1.0.0",
+  "description": "Typed CSS built on top of glamor.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/prettier-tslint check 'src/**/*.ts'",
+    "fixlint": "./node_modules/.bin/prettier-tslint fix 'src/**/*.ts'",
+    "build": "npm run build-cjs; npm run build-es6",
+    "build-cjs": "./node_modules/typescript/bin/tsc -p ./tsconfig.publish.json",
+    "build-es6": "./node_modules/typescript/bin/tsc -p ./tsconfig.publish.es.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run build"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jethrolarson/css-ts.git"
+  },
+  "author": "Jethro Larson",
+  "license": "MIT",
+  "dependencies": {
+    "glamor": "^2.20.40"
+  },
+  "devDependencies": {
+    "husky": "^1.1.2",
+    "prettier": "^1.14.3",
+    "prettier-tslint": "^0.4.0",
+    "ts-loader": "^5.2.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.3"
+  }
+}

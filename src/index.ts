@@ -1,19 +1,21 @@
 import { CSSColor, serializeColor, hsl } from "./colors";
-import { map, join, B } from "../util";
+import { map, join, B } from "./util";
 import { Unit, px, pc } from "./units";
-import { prop, prop2, CSSProp, FlexTuple4, FlexTuple2 } from "./common";
-import { DisplayValue } from "./display";
+import {
+  prop,
+  prop2,
+  CSSProp,
+  FlexTuple4,
+  FlexTuple2,
+  CSSNumeric,
+  serializeNumericTuple,
+  serializeNumeric,
+  serializeUnit
+} from "./common";
 export { textDecoration, textAlign } from "./text";
-type CSSNumeric = number | Unit;
+export { display } from "./display";
 
 export const props: (...xs: CSSProp[]) => CSSProp = Object.assign;
-
-const serializeUnit = (x: Unit) => x[0].toString() + x[1];
-
-const serializeNumeric = (x: CSSNumeric) =>
-  Array.isArray(x) ? x[0].toString() + x[1] : x;
-
-const serializeNumericTuple = B(join(" "), map(serializeNumeric));
 
 export const padding = prop2<FlexTuple4<CSSNumeric>>(
   "padding",
@@ -144,8 +146,6 @@ export const lineHeight = prop2(
   "lineHeight",
   (x: LineHeightValue) => (typeof x === "string" ? x : serializeNumeric(x))
 );
-
-export const display = prop<DisplayValue>("display");
 
 // Should pass
 // border({ width: px(1), style: "solid", color: hsl(220, 80, 90) });

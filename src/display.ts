@@ -1,3 +1,5 @@
+import { prop } from "./common";
+
 export type DisplayValue =
   | "block"
   | "inline"
@@ -40,3 +42,5 @@ export type DisplayValue =
   | "inherit"
   | "initial"
   | "unset";
+
+export const display = prop<DisplayValue>("display");
