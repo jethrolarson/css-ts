@@ -1,6 +1,8 @@
 import { Unit } from "./units";
 import { pipe, join, map } from "./util";
 
+export type GlobalValue = "unset" | "initial" | "inherit";
+
 export type CSSNumeric = number | Unit;
 
 export interface CSSProp {
