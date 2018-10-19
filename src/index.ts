@@ -1,6 +1,8 @@
-import { hsl } from "./colors";
-import { px, pc } from "./units";
 import { CSSProp } from "./common";
+
+export { hsl, rgb, CSSColor } from "./colors";
+export { px, pc } from "./units";
+export { CSSProp } from "./common";
 export {
   textDecoration,
   textAlign,
@@ -34,6 +36,5 @@ export {
   padding
 } from "./layout";
 export { cursor } from "./cursor";
-export { pc, px, hsl };
 
 export const props: (...xs: CSSProp[]) => CSSProp = Object.assign;

@@ -14,6 +14,13 @@ export type FlexTuple2<T> = FlexTuple1<T> | [T, T];
 export type FlexTuple3<T> = FlexTuple2<T> | [T, T, T];
 export type FlexTuple4<T> = FlexTuple3<T> | [T, T, T, T];
 
+export interface Url {
+  kind: "Url";
+  href: string;
+}
+
+export const url = (href: string): Url => ({ kind: "Url", href: href });
+
 export const prop2 = <V>(k: string, serializer: (x: V) => string | number) => (
   v: V
 ): CSSProp => ({ [k]: serializer(v) });
