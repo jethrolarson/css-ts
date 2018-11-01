@@ -35,6 +35,7 @@ export {
   verticalAlign,
   padding
 } from "./layout";
+export { background } from "./background";
 export { cursor } from "./cursor";
 
 export const props: (...xs: CSSProp[]) => CSSProp = Object.assign;
